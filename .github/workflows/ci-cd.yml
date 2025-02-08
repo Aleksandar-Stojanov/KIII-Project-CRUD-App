@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t aleksandarstojanov/kiii-project-crud-app-docker:latest -f CRUD-App-Tasks-MongoDb-Flask/Dockerfile .
+        docker build -t aleksandarstojanov/kiii-project-crud-app-docker:latest -f CRUD-App-Tasks-MongoDb-Flask/Dockerfile CRUD-App-Tasks-MongoDb-Flask
 
     - name: Push Docker image to Docker Hub
       run: |
