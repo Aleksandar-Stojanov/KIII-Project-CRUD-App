@@ -7,7 +7,7 @@ app = Flask(__name__)
 title = "Tasks Organizer"
 heading = "Tasks Organizer Application"
 
-client = MongoClient("mongodb://127.0.0.1:27017") #host uri
+client = MongoClient("mongodb://mongodb:27017") #host uri
 db = client.mymongodb    #Select the database
 todos = db.todo #Select the collection name
 
@@ -27,6 +27,7 @@ def lists ():
 @app.route("/uncompleted")
 def tasks ():
 	#Display the Uncompleted Tasks
+	print("welcome to the app")
 	todos_l = todos.find({"done":"no"})
 	a2="active"
 	return render_template('index.html',a2=a2,todos=todos_l,t=title,h=heading)
@@ -112,4 +113,5 @@ def search():
 
 if __name__ == "__main__":
 
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
+
