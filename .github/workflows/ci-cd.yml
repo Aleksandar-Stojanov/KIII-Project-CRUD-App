@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t aleksandarstojanov/KIII-Project-CRUD-App-Docker:latest .
+        docker build -t aleksandarstojanov/kiii-project-crud-app-docker:latest .
 
     - name: Push Docker image to Docker Hub
       run: |
