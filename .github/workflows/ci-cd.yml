@@ -24,7 +24,7 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker push aleksandarstojanov/KIII-Project-CRUD-App-Docker:latest
+        docker push aleksandarstojanov/kiii-project-crud-app-docker:latest
 
     - name: Log out from Docker Hub
       run: |
