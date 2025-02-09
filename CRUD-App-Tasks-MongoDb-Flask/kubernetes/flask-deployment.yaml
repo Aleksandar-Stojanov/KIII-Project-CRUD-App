@@ -21,5 +21,9 @@ spec:
             - containerPort: 5000
           env:
             - name: MONGO_URI
-              value: "mongodb://mongo-service:27017"
+              valueFrom:
+                configMapKeyRef:
+                  name: flask-config
+                  key: MONGO_URI
+
 
