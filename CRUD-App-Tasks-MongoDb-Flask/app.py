@@ -7,7 +7,7 @@ app = Flask(__name__)
 title = "Tasks Organizer"
 heading = "Tasks Organizer Application"
 
-client = MongoClient("mongodb://mongodb:27017") #host uri
+client = MongoClient("mongodb://mongo-service:27017")
 db = client.mymongodb    #Select the database
 todos = db.todo #Select the collection name
 
