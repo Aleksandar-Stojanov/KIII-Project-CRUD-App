@@ -27,6 +27,30 @@ jobs:
       run: |
         docker push aleksandarstojanov/kiii-project-crud-app-docker:latest
 
+    - name: Set up Minikube and kubectl
+      uses: manusa/actions-setup-minikube@v2.1.0
+      with:
+        minikube-version: 'v1.23.2'
+        kubectl-version: 'v1.22.0'
+
+    - name: Configure kubectl
+      run: |
+        minikube start --driver=docker
+        kubectl config use-context minikube
+
+    - name: Deploy Flask app to Kubernetes
+      run: |
+        kubectl apply -f CRUD-App-Tasks-MongoDb-Flask/kubernetes/flask-app-deployment.yaml
+        kubectl apply -f CRUD-App-Tasks-MongoDb-Flask/kubernetes/flask-app-service.yaml
+
+    - name: Expose Flask app via Service
+      run: |
+        kubectl expose deployment flask-app --type=NodePort --name=flask-app-service --port=5000
+
+    - name: Start Minikube Tunnel (Optional for local access)
+      run: |
+        minikube tunnel &
+
     - name: Log out from Docker Hub
       run: |
         docker logout
