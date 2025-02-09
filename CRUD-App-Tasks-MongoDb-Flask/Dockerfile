@@ -1,4 +1,4 @@
-ARG TARGETPLATFORM
+ARG TARGETPLATFORM=linux/amd64
 FROM --platform=$TARGETPLATFORM python:3.9-slim
 FROM python:3.9-slim
 WORKDIR /app
